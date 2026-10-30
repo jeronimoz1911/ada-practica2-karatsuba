@@ -41,6 +41,14 @@ std::size_t siguientePotencia2(std::size_t n) {
 // Menor potencia de 2 >= n (con siguientePotencia2(0) == 1).
 // Lanza std::overflow_error si esa potencia no cabe en size_t.
 
+std::size_t rellenarPotencia2(Num& a, Num& b) {
+    std::size_t mayor = std::max(a.size(), b.size());
+    std::size_t n = siguientePotencia2(mayor);
+    a = rellenar(a, n);
+    b = rellenar(b, n);
+    return n;
+} // Rellena a y b con ceros a la izquierda hasta que tengan la misma longitud, que es una potencia de 2.
+
 Num sumar(const Num& a, const Num& b) {
     std::size_t i = a.size();
     std::size_t j = b.size();
